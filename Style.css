@@ -222,26 +222,33 @@ display: none;
   }
   
 
-  .ok{
-
+  .ok {
     text-align: center;
     width: 100%;
     padding: 12px;
-    background-color: #1e6;
-    color: #fff;
+    background-color: #4CAF50;
+    color: #ffffff;
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
   }
+  
 
-  .bad{
-
+  .bad {
+    border-width: 5%;
     text-align: center;
     width: 100%;
     padding: 12px;
-    background-color: #a22;
-    color: #fff;
+    background-color: #f44336;
+    color: #ffffff;
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
   }
+  
 
   table{
     border-radius: 5%;
     border: #000;
     border-width: 5%;
   }
+
+  
