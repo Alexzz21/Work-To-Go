@@ -58,8 +58,23 @@
 												<?php
 												include("con_db.php");
 												include("controlador.php");
+
 												?>
 											</div>
+											<?php
+											if (isset($_GET['mensaje'])) {
+												$mensaje = $_GET['mensaje'];
+												echo "<p class='bad'> $mensaje</p>";
+											}
+					
+											?>
+											<?php
+											if (isset($_GET['mensajeok'])) {
+												$mensajeok = $_GET['mensajeok'];
+												echo "<p class='ok'> $mensajeok</p>";
+											}
+					
+											?>
 										</div>
 									</div>
 									<div class="card-back">
@@ -119,6 +134,7 @@
 
 
 	</form>
+
 
 
 

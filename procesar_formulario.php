@@ -1,23 +1,50 @@
 <?php
-  // Obtener los valores del formulario
+  
+  
   $nombre = $_POST['RNombre'];
   $cedula = $_POST['RCedula'];
   $telefono = $_POST['RTelefono'];
   $email = $_POST['REmail'];
   $clave = $_POST['RContra'];
   
-  // Conectar a la base de datos
+  
   include("con_db.php");
   
-  // Preparar la consulta SQL para insertar los datos en la tabla "usuarios"
+  
+  $consulta = "SELECT * FROM usuarios WHERE email = '$email'";
+  $resultado = mysqli_query($conexion, $consulta);
+
+
+  if (mysqli_num_rows($resultado) > 0) {
+    $mensaje = "El correo electrónico ya está registrado";
+    header("Location: index.php?mensaje=" . urlencode($mensaje));
+    exit;
+    
+  }
+
+
+
+
+  $consulta = "SELECT * FROM usuarios WHERE cedula = '$cedula'";
+  $resultado = mysqli_query($conexion, $consulta);
+
+
+  if (mysqli_num_rows($resultado) > 0) {
+    $mensaje = "La cedula ya está registrada";
+    header("Location: index.php?mensaje=" . urlencode($mensaje));
+    exit;
+    
+  }
+
+  
+  
   $consulta = "INSERT INTO usuarios (nombre, cedula, telefono, email, clave) VALUES ('$nombre', '$cedula', '$telefono', '$email', '$clave')";
-  
-  // Ejecutar la consulta SQL
   mysqli_query($conexion, $consulta);
+  $mensajeok = "Usuario registrado exitosamente";
   
-  // Cerrar la conexión a la base de datos
+ 
   mysqli_close($conexion);
 
-  header("Location: index.php");
-exit;
+  header("Location: index.php?mensajeok=" . urlencode($mensajeok));
+  exit;
 ?>
